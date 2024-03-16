@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="slider.js"></script>
+    <title>Slider</title>
+    <style>
+      .slider-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .slider {
+        display: flex;
+        transition: transform 0.5s ease;
+        overflow: hidden;
+      }
+
+      .slides {
+        display: flex;
+        flex-wrap: nowrap;
+      }
+
+      .slide {
+        flex: 0 0 100%;
+      }
+
+      .controls {
+        position: absolute;
+        bottom: 30px; /* Podniesione */
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      .dots {
+        display: flex;
+        justify-content: center;
+        position: absolute; /* Dodane */
+        top: -20px; /* Podniesione */
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #ccc;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+
+      .dot.active {
+        background-color: #333;
+      }
+
+      .controls button {
+        margin: 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slides">
+          <div class="slide"><img src="Wsei3.png" alt="Slide 1" /></div>
+          <div class="slide"><img src="Wsei4.png" alt="Slide 2" /></div>
+          <div class="slide"><img src="Wsei1.png" alt="Slide 3" /></div>
+        </div>
+      </div>
+      <div class="controls">
+        <div class="dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <button class="prev">Poprzedni</button>
+        <button class="next">Następny</button>
+      </div>
+    </div>
+  </body>
+</html>
