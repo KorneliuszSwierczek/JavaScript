@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NotesApp</title>
+  <style>
+    /* Stylowanie notatek */
+    .note {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hobbit Notes App</h1>
+  <form id="noteForm">
+    <label for="title">Tytuł:</label><br>
+    <input type="text" id="title" name="title" required><br>
+    <label for="content">Treść:</label><br>
+    <textarea id="content" name="content" required></textarea><br>
+    <label for="color">Kolor:</label><br>
+    <input type="color" id="color" name="color" value="#ffffff"><br>
+    <label for="tags">Tagi (oddzielone przecinkami):</label><br>
+    <input type="text" id="tags" name="tags"><br>
+    <label for="pin">Przypnij do góry:</label>
+    <input type="checkbox" id="pin" name="pin"><br>
+    <button type="submit">Dodaj notatkę</button>
+  </form>
+  <input type="text" id="search" placeholder="Wyszukaj notatkę...">
+  <div id="notes"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
