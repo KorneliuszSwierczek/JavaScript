@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <script defer src="script.js"></script>
+</head>
+<style>
+body {
+    background-color: bisque;
+    margin: 0;
+    overflow: hidden;
+}
+
+#gameArea {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: lightgray;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Pod kropkami */
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgb(214, 124, 21);
+    position: absolute;
+    border-radius: 50%;
+}
+</style>
+<body>
+    <div id="gameArea">
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
+</html>
