@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <audio src="./sounds/boom.wav" controls id="boom" data-key="a"></audio>
     <audio src="./sounds/hihat.wav" controls id="hihat" data-key="b"></audio>
     <audio src="./sounds/clap.wav" controls id="clap" data-key="c"></audio>
+
+    <!-- Dodanie przycisków do obsługi nagrywania i odtwarzania -->
+    <div>
+      <button onclick="startRecording(0)">Record Channel 1</button>
+      <button onclick="stopRecording(0)">Stop Channel 1</button>
+      <button onclick="playRecording(0)">Play Channel 1</button>
+    </div>
+    <div>
+      <button onclick="startRecording(1)">Record Channel 2</button>
+      <button onclick="stopRecording(1)">Stop Channel 2</button>
+      <button onclick="playRecording(1)">Play Channel 2</button>
+    </div>
+    <div>
+      <button onclick="startRecording(2)">Record Channel 3</button>
+      <button onclick="stopRecording(2)">Stop Channel 3</button>
+      <button onclick="playRecording(2)">Play Channel 3</button>
+    </div>
+    <div>
+      <button onclick="startRecording(3)">Record Channel 4</button>
+      <button onclick="stopRecording(3)">Stop Channel 4</button>
+      <button onclick="playRecording(3)">Play Channel 4</button>
+    </div>
+    <div>
+      <button onclick="playAll()">Play All Channels</button>
+    </div>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

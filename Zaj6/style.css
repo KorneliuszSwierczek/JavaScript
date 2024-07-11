@@ -1,0 +1,39 @@
+#gameArea {
+  position: relative;
+  width: 100vw;
+  height: 80vh; /* Zmniejszenie wysokości, aby było miejsce na wynik */
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+.ball,
+.hole {
+  position: absolute;
+}
+
+.ball {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.hole {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczysta czarna dziura */
+}
+
+#score,
+#highscores {
+  margin: 10px;
+  font-size: 1.2em;
+}
+
+#startButton {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
