@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let score = 0;
   let isGameRunning = false;
   let startTime;
-  const gameDuration = 60000; // Czas gry w milisekundach (60 sekund)
+  const gameDuration = 60000; // Czas gry 
 
   function setPosition(element, x, y) {
     element.style.left = `${x}px`;
