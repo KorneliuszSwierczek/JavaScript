@@ -1,25 +1,19 @@
-// Pobranie canvas i kontekstu 2D
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
-// Pobranie elementów formularza
 const numBallsInput = document.getElementById("numBalls");
 const distanceInput = document.getElementById("distance");
 const distanceValue = document.getElementById("distanceValue");
 
-// Ustawienie początkowych wartości
 let numBalls = parseInt(numBallsInput.value);
 let minDistance = (parseInt(distanceInput.value) / 100) * canvas.width;
 
-// Tablica przechowująca informacje o kulach
 let balls = [];
 
-// Funkcja do generowania losowych liczb
 function random(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-// Funkcja rysująca kulki
 function drawBall(x, y, radius, color) {
   ctx.beginPath();
   ctx.arc(x, y, radius, 0, Math.PI * 2);
@@ -27,7 +21,6 @@ function drawBall(x, y, radius, color) {
   ctx.fill();
 }
 
-// Funkcja rysująca linię między kulami
 function drawLine(x1, y1, x2, y2) {
   ctx.beginPath();
   ctx.moveTo(x1, y1);
@@ -36,7 +29,6 @@ function drawLine(x1, y1, x2, y2) {
   ctx.stroke();
 }
 
-// Funkcja do rysowania wszystkich kul i linii
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -52,11 +44,9 @@ function draw() {
       }
     }
 
-    // Aktualizacja pozycji kuli
     balls[i].x += balls[i].dx;
     balls[i].y += balls[i].dy;
 
-    // Odbijanie się od krawędzi
     if (
       balls[i].x + balls[i].radius >= canvas.width ||
       balls[i].x - balls[i].radius <= 0
@@ -74,15 +64,12 @@ function draw() {
   requestAnimationFrame(draw);
 }
 
-// Funkcja do rozpoczęcia animacji
 function startAnimation() {
   numBalls = parseInt(numBallsInput.value);
   minDistance = (parseInt(distanceInput.value) / 100) * canvas.width;
 
-  // Usunięcie istniejących kul
   balls = [];
 
-  // Generowanie nowych kul
   for (let i = 0; i < numBalls; i++) {
     let radius = random(5, 20);
     let x = random(radius, canvas.width - radius);
@@ -96,7 +83,6 @@ function startAnimation() {
   draw();
 }
 
-// Funkcja do resetowania animacji
 function resetAnimation() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   balls = [];
