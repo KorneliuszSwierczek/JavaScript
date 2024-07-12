@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const notesContainer = document.getElementById("notes");
   const searchInput = document.getElementById("search");
 
-  // Wczytaj notatki z localStorage po załadowaniu strony
+  
   loadNotes();
 
   noteForm.addEventListener("submit", function (event) {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const pin = document.getElementById("pin").checked;
     const date = new Date().toLocaleString();
 
-    // Tworzenie obiektu notatki
+    
     const note = {
       title,
       content,
@@ -30,32 +30,32 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     saveNoteToLocalStorage(note);
-    loadNotes(); // Ponowne wczytanie notatek po dodaniu nowej
-    noteForm.reset(); // Wyczyszczenie formularza po dodaniu notatki
+    loadNotes(); 
+    noteForm.reset(); 
   });
 
   searchInput.addEventListener("input", function () {
     loadNotes(this.value.toLowerCase());
   });
 
-  // Funkcja zapisywania notatki do localStorage
+  
   function saveNoteToLocalStorage(note) {
     let notes = JSON.parse(localStorage.getItem("notes")) || [];
     notes.push(note);
     localStorage.setItem("notes", JSON.stringify(notes));
   }
 
-  // Funkcja wczytywania notatek z localStorage i wyświetlania ich
+ 
   function loadNotes(searchQuery = "") {
     console.log("Wczytywanie notatek...");
-    notesContainer.innerHTML = ""; // Czyszczenie kontenera przed wczytaniem notatek
+    notesContainer.innerHTML = ""; 
 
     let notes = JSON.parse(localStorage.getItem("notes")) || [];
 
-    // Sortowanie notatek, aby przypięte były na górze
+    
     notes.sort((a, b) => b.pin - a.pin);
 
-    // Jeśli nie ma zapytania wyszukiwania, wyświetl wszystkie notatki
+    
     if (!searchQuery) {
       console.log(
         "Brak zapytania wyszukiwania, wyświetlanie wszystkich notatek."
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Jeśli jest zapytanie wyszukiwania, filtrowanie notatek
+    
     console.log("Wyszukiwanie notatek na podstawie zapytania:", searchQuery);
     notes.forEach((note) => {
       const searchText = `${note.title} ${note.content} ${
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Funkcja dodawania notatki do kontenera
+ 
   function addNoteToContainer(note) {
     const noteElement = document.createElement("div");
     noteElement.classList.add("note");
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
     noteElement.appendChild(tagsElement);
     noteElement.appendChild(dateElement);
 
-    // Dodajemy notatkę na górę kontenera, jeśli jest przypięta
+   
     if (note.pin) {
       notesContainer.insertBefore(noteElement, notesContainer.firstChild);
     } else {
