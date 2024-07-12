@@ -41,5 +41,5 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(".prev").addEventListener("click", prevSlide);
   document.querySelector(".next").addEventListener("click", nextSlide);
 
-  setInterval(nextSlide, 1000); // Automatyczne przewijanie co 5 sekund
+  setInterval(nextSlide, 5000); // Automatyczne przewijanie co 5 sekund
 });
