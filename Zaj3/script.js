@@ -8,12 +8,12 @@ const sounds = {
   c: hihat,
 };
 
-// Tablice do przechowywania nagrań dla każdego kanału
+
 let recordings = [[], [], [], []];
 let isRecording = [false, false, false, false];
 let startTime;
 
-// Obsługa zdarzeń naciśnięcia klawisza
+
 document.addEventListener("keypress", (ev) => {
   console.log(ev);
 
@@ -22,7 +22,6 @@ document.addEventListener("keypress", (ev) => {
     sound.currentTime = 0;
     sound.play();
 
-    // Jeśli nagrywanie jest aktywne, zapisz zdarzenie
     for (let i = 0; i < isRecording.length; i++) {
       if (isRecording[i]) {
         recordings[i].push({
@@ -34,7 +33,7 @@ document.addEventListener("keypress", (ev) => {
   }
 });
 
-// Funkcja rozpoczęcia nagrywania
+
 function startRecording(channel) {
   recordings[channel] = [];
   isRecording[channel] = true;
@@ -42,13 +41,12 @@ function startRecording(channel) {
   console.log(`Recording started on channel ${channel + 1}`);
 }
 
-// Funkcja zatrzymania nagrywania
 function stopRecording(channel) {
   isRecording[channel] = false;
   console.log(`Recording stopped on channel ${channel + 1}`);
 }
 
-// Funkcja odtwarzania nagrania
+
 function playRecording(channel) {
   if (recordings[channel].length === 0) return;
 
@@ -62,7 +60,7 @@ function playRecording(channel) {
   console.log(`Playing recording on channel ${channel + 1}`);
 }
 
-// Funkcja odtwarzania wszystkich nagrań jednocześnie
+
 function playAll() {
   for (let i = 0; i < recordings.length; i++) {
     playRecording(i);
